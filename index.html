@@ -10,7 +10,7 @@
 
 </head>
 <body>
-    <header class="">
+    <header class="  md:max-w-6/12 lg:max-w-max sm:max-w-2/12">
         <div class="navbar bg-base-100 border-4 border-indigo-200 border-b-indigo-500 ">
             <div class="flex-1">
               <a class="btn btn-ghost normal-case text-3xl text-yellow-500 ">Public portal</a>
@@ -18,32 +18,32 @@
             <div class="flex gap-2 ">
                 <div class="form-control hover:text-violet-600">
                   
-                    <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+                    <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box md:max-w-32 lg:max-w-max sm:max-w-12">
                         <div class="collapse-title text-xl font-medium">
                         Blog
                         </div>
                         <div class="collapse-content"> 
                           <div>
                             <h1 class="text-xl">Difference between var, let and const  in JavaScript:</h1>
-                            <p>var: The scope of the var keyword is the global or function scope. <br> It means variables defined outside the function can be accessed globally, and variables defined inside a particular function can be accessed within the function. </p>
+                            <p>var: The scope of the var keyword is the global or function scope. <br> It means variables defined outside the function can be accessed globally,  and variables defined inside a particular function can be accessed within the function. </p>
                             <p>
                                 let : The scope of a let variable is only block scoped.  It can’t be accessible outside the particular block ({block}). 
                             </p>
                             <p>
-                                const : When users declare a const variable, they need to initialize it, otherwise, it returns an error. The user cannot update the const variable once it is declared. 
+                                const : When users declare a const variable, they need to initialize it, otherwise, it returns an error.  The user cannot update the const variable once it is declared. 
                             </p>
                           </div>
                           <div>
                             <h1 class="text-xl"> Difference Between Regular Functions and Arrow Functions</h1>
                             <p>
                                 Regular function :
-                                let x = function function_name(parameters){
+                                let x = function  function_name(parameters){
                                     // body of the function
                                  }; 
                             </p>
                             <p>
                                 Arrow function :
-                                let x = (parameters) => {
+                                let x = (parameters) =>  {
                                     // body of the function
                                 };
                             </p>
@@ -51,7 +51,7 @@
                           <div>
                             <h1 class="text-xl"> Why use template string in JavaScript?</h1>
                             <p>
-                                It lets us insert/interpolate variables and expressions into strings without needing to concatenate like in older versions of JavaScript.
+                                It lets us insert/interpolate variables and  expressions into strings without needing to concatenate like in older versions of JavaScript.
                             </p>
                           </div>
                         </div>
@@ -70,9 +70,17 @@
               </div>
             </div>
           </div>
-
     </header>
-
+    <header id="meau-list">
+        <div class="navbar bg-base-100 ">
+            <div class="navbar-center  lg:flex">
+              <ul class="menu menu-horizontal p-0">
+                <li><a>Item 1</a></li>
+                <li><a>Item 3</a></li>
+              </ul>
+            </div>
+          </div>
+    </header>
 
 
     <script src="https://cdn.tailwindcss.com"></script>
