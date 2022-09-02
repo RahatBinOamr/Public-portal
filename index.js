@@ -51,7 +51,7 @@ const setAllMenu = (allNews)=>{
                 <p>published_date: ${collectnews.author.published_date} </p>
                 <p> name:${collectnews.author.name}<i class="fa-solid fa-eye ml-4"></i>  ${collectnews.total_view ? collectnews.total_view :"no one see"} </p>
                 <div class="card-actions justify-end">
-                  <button class="btn btn-primary">Buy Now</button>
+                <label for="my-modal-3" class="btn modal-button" onclick="showAllModal(description)" >Details</label>
                 </div>
               </div>
             </div>
@@ -69,4 +69,13 @@ const setAllMenu = (allNews)=>{
 
     }
 
+    const showAllModal = ( description)=>{
+        console.log(description)
+        const modalBody = document.getElementById('modal-body');
+        modalBody.innerHTML = 
+        `
+        
+            <p class="py-4"> ${description} </p>
+        `;
+        }
 loadPublicPortal()
