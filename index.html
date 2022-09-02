@@ -4,40 +4,74 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Public-News-portal</title>
+    <title>Public Portal</title>
     
 <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
-    <div class="navbar bg-base-100">
-        <div class="flex-1">
-          <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
-        </div>
-        <div class="flex gap-2">
-          <div class="form-control hover:text-violet-600 ">
-             <a href="#">News</a>
-          </div>
-          <div class="form-control hover:text-violet-600">
-            
-             <div class="dropdown">
-                <label tabindex="0" class="btn m-1"> <a href="#">Blog</a></label>
-                <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                  <li><a>Item 1</a></li>
-                  <li><a>Item 2</a></li>
-                </ul>
+    <header class="">
+        <div class="navbar bg-base-100 border-4 border-indigo-200 border-b-indigo-500 ">
+            <div class="flex-1">
+              <a class="btn btn-ghost normal-case text-3xl text-yellow-500 ">Public portal</a>
+            </div>
+            <div class="flex gap-2 ">
+                <div class="form-control hover:text-violet-600">
+                  
+                    <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+                        <div class="collapse-title text-xl font-medium">
+                        Blog
+                        </div>
+                        <div class="collapse-content"> 
+                          <div>
+                            <h1 class="text-xl">Difference between var, let and const  in JavaScript:</h1>
+                            <p>var: The scope of the var keyword is the global or function scope. <br> It means variables defined outside the function can be accessed globally, and variables defined inside a particular function can be accessed within the function. </p>
+                            <p>
+                                let : The scope of a let variable is only block scoped.  It can’t be accessible outside the particular block ({block}). 
+                            </p>
+                            <p>
+                                const : When users declare a const variable, they need to initialize it, otherwise, it returns an error. The user cannot update the const variable once it is declared. 
+                            </p>
+                          </div>
+                          <div>
+                            <h1 class="text-xl"> Difference Between Regular Functions and Arrow Functions</h1>
+                            <p>
+                                Regular function :
+                                let x = function function_name(parameters){
+                                    // body of the function
+                                 }; 
+                            </p>
+                            <p>
+                                Arrow function :
+                                let x = (parameters) => {
+                                    // body of the function
+                                };
+                            </p>
+                          </div>
+                          <div>
+                            <h1 class="text-xl"> Why use template string in JavaScript?</h1>
+                            <p>
+                                It lets us insert/interpolate variables and expressions into strings without needing to concatenate like in older versions of JavaScript.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+              <div class="form-control hover:text-violet-600 ">
+                 <a href="#">News</a>
               </div>
-          </div>
-          <div class="dropdown dropdown-end">
-            <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-              <div class="w-10 rounded-full">
-                <img src="rahat.jpg" />
+              <div class="dropdown dropdown-end">
+                <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                  <div class="w-10 rounded-full">
+                    <img src="rahat.jpg" />
+                  </div>
+                </label>
+               
               </div>
-            </label>
-           
+            </div>
           </div>
-        </div>
-      </div>
+
+    </header>
 
 
 
