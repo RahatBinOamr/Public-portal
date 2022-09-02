@@ -46,8 +46,10 @@ const setAllMenu = (allNews)=>{
               <figure><img src="${collectnews.image_url} " alt="Shoes" /></figure>
              </div>
               <div class="card-body">
-                <h2 class="card-title">Shoes!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <h2 class="card-title">${collectnews.title} </h2>
+                <p>category_id: ${collectnews.category_id} </p>
+                <p>published_date: ${collectnews.author.published_date} </p>
+                <p><i class="fa-solid fa-eye"></i> ${collectnews.total_view ? collectnews.total_view :"no one see"} </p>
                 <div class="card-actions justify-end">
                   <button class="btn btn-primary">Buy Now</button>
                 </div>
