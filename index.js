@@ -1,18 +1,30 @@
 const loadPublicPortal = async() =>{
-const res = await fetch (`https://openapi.programming-hero.com/api/news/category/01`);
-const result = await res.json()
-return result ;
+const url = (`https://openapi.programming-hero.com/api/news/categories`)
+fetch(url)
+.then (res=>res.json())
+.then(data=>setAllMenu(data))
 
 }
 
-const setAllMenu = async()=>{
-    const result = await loadPublicPortal();
-   /*  console.log(result); */
-    const menu = document.getElementById('meau-list');
+const setAllMenu = (product)=>{
+  /*   console.log(product.data.news_category); */
+    const menuList = document.getElementById('meau-list');
     const uniqueArray = [];
-    for(const data in result){
-    console.log(data[0].category_id)
-
+    for(const data in product){
+        /* console.log(product.data.news_category) */
+        if(uniqueArray.indexOf(product.data.news_category)=== -1){
+            uniqueArray.push(product.data.news_category);
+            const div = document.createElement('div');
+            div.innerHTML = 
+            `
+            <ul class="menu menu-horizontal p-0">
+                <li><a> ${product.data.news_category[0].category_name } </a></li>
+                
+              </ul>
+            `;
+            menuList.appendChild(div)
+        }
     }
+
 }
-setAllMenu();
+loadPublicPortal()
