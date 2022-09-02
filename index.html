@@ -10,8 +10,34 @@
 
 </head>
 <body>
-    <h1> Welcome </h1>
-
+    <div class="navbar bg-base-100">
+        <div class="flex-1">
+          <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
+        </div>
+        <div class="flex gap-2">
+          <div class="form-control hover:text-violet-600 ">
+             <a href="#">News</a>
+          </div>
+          <div class="form-control hover:text-violet-600">
+            
+             <div class="dropdown">
+                <label tabindex="0" class="btn m-1"> <a href="#">Blog</a></label>
+                <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                  <li><a>Item 1</a></li>
+                  <li><a>Item 2</a></li>
+                </ul>
+              </div>
+          </div>
+          <div class="dropdown dropdown-end">
+            <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+              <div class="w-10 rounded-full">
+                <img src="rahat.jpg" />
+              </div>
+            </label>
+           
+          </div>
+        </div>
+      </div>
 
 
 
