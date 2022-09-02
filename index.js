@@ -2,29 +2,29 @@ const loadPublicPortal = async() =>{
 const url = (`https://openapi.programming-hero.com/api/news/categories`)
 fetch(url)
 .then (res=>res.json())
-.then(data=>setAllMenu(data))
+.then(data=>setAllMenu(data.data.news_category))
 
 }
 
-const setAllMenu = (product)=>{
-  /*   console.log(product.data.news_category); */
+const setAllMenu = (allNews)=>{
+ 
     const menuList = document.getElementById('meau-list');
     const uniqueArray = [];
-    for(const data in product){
-        /* console.log(product.data.news_category) */
-        if(uniqueArray.indexOf(product.data.news_category)=== -1){
-            uniqueArray.push(product.data.news_category);
+    allNews.forEach(news=>{
+        
+        if(uniqueArray.indexOf(news)=== -1){
+            uniqueArray.push(news);
             const div = document.createElement('div');
             div.innerHTML = 
             `
             <ul class="menu menu-horizontal p-0">
-                <li><a> ${product.data.news_category[0].category_name } </a></li>
+                <li><a> ${news.category_name } </a></li>
                 
               </ul>
             `;
             menuList.appendChild(div)
         }
-    }
+    })
 
 }
 loadPublicPortal()
