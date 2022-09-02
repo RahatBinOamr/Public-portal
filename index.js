@@ -49,7 +49,7 @@ const setAllMenu = (allNews)=>{
                 <h2 class="card-title">${collectnews.title} </h2>
                 <p>category_id: ${collectnews.category_id} </p>
                 <p>published_date: ${collectnews.author.published_date} </p>
-                <p><i class="fa-solid fa-eye"></i> ${collectnews.total_view ? collectnews.total_view :"no one see"} </p>
+                <p> name:${collectnews.author.name}<i class="fa-solid fa-eye ml-4"></i>  ${collectnews.total_view ? collectnews.total_view :"no one see"} </p>
                 <div class="card-actions justify-end">
                   <button class="btn btn-primary">Buy Now</button>
                 </div>
