@@ -1,45 +1,43 @@
-const loadPublicPortal = async() =>{
-    const url = (`https://openapi.programming-hero.com/api/news/categories`)
+const loadPublicPortal = () =>{
+    const url = `https://openapi.programming-hero.com/api/news/categories`
     fetch(url)
     .then (res=>res.json())
-    .then(data=>setAllMenu(data.data.news_category))
+    .then(data=>displayCategories(data.data.news_category))
     
     }
     
-    const setAllMenu = (allNews)=>{
-     console.log(allNews)
-        const menuList = document.getElementById('meau-list');
-        const uniqueArray = [];
-        allNews.forEach(news=>{
-            
-            if(uniqueArray.indexOf(news)=== -1){
-                uniqueArray.push(news);
-                const div = document.createElement('div');
-                div.innerHTML = 
+    const displayCategories = (categoryes)=>{
+     console.log(categoryes)
+        const menuList = document.getElementById('ul-item');
+       
+         categoryes.forEach(category=>{
+                const li = document.createElement('li');
+                li.innerHTML = 
                 `
-                <ul class="menu menu-horizontal p-0">
-                    <li><a onclick= "newsdeltails('${news.category_id}')" > ${news.category_name } </a></li>
-                    
-                  </ul>
+                    <li><a onclick="newslist('${category.category_id}')"  > ${category.category_name } </a></li>
                 `;
-                menuList.appendChild(div)
-            }
-            const inputField = document.getElementById('inputField');
+                menuList.appendChild(li)
+            
 
 
-        }) 
-        const newsdeltails = ()=>{
+        });
+    }
+    
+        const newslist = ()=>{
             const url = `https://openapi.programming-hero.com/api/news/category/01`
             fetch(url)
             .then(res=>res.json())
             .then(data=>newsContainerfield(data.data))
         }
+        loadPublicPortal() 
+
     
-        const newsContainerfield = (collections)=>{
+            const newsContainerfield = (collections)=>{
             const newsContainer = document.getElementById('news-container');
-            /* console.log(collections) */
+            newsContainer.textContent = '';
+            console.log(collections) 
     
-            collections.forEach(collectnews =>{
+             collections.forEach(collectnews =>{
                 console.log(collectnews)
                 const {image_url,title,category_id,author,total_view,details} = collectnews;
                 const div = document.createElement('div');
@@ -64,25 +62,25 @@ const loadPublicPortal = async() =>{
                 </div>
                 `;
                 newsContainer.appendChild(div)
-    
-            })
-            }
+             
+            }) 
+        }
     
         
-            newsdeltails()
+          
     
          
             
     
-        }
+        
         
     
-        const showAllModal=(details)=>{
-           /*  console.log(details) */
-            const modalBody = document.getElementById('modal-body');
-            modalBody.innerHTML = 
-            `
-                <p class="py-4"> ${details} </p>
-            `;
-            }
-    loadPublicPortal()
+    //     const showAllModal=(details)=>{
+    //        /*  console.log(details) */
+    //         const modalBody = document.getElementById('modal-body');
+    //         modalBody.innerHTML = 
+    //         `
+    //             <p class="py-4"> ${details} </p>
+    //         `;
+    //         }
+    // loadPublicPortal()
