@@ -7,7 +7,7 @@ const loadPublicPortal = () =>{
     }
     
     const displayCategories = (categoryes)=>{
-     console.log(categoryes)
+     /* console.log(categoryes) */
         const menuList = document.getElementById('ul-item');
        
          categoryes.forEach(category=>{
@@ -35,11 +35,13 @@ const loadPublicPortal = () =>{
             const newsContainerfield = (collections)=>{
             const newsContainer = document.getElementById('news-container');
             newsContainer.textContent = '';
-            console.log(collections) 
-    
+            /* console.log(collections)  */
+           
+           
+                
              collections.forEach(collectnews =>{
                 console.log(collectnews)
-                const {image_url,title,category_id,author,total_view,details} = collectnews;
+                const {image_url,title,category_id,author,total_view,details,thumbnail_url} = collectnews;
                 const div = document.createElement('div');
                 div.innerHTML =
                 `
@@ -50,37 +52,29 @@ const loadPublicPortal = () =>{
                   <div class="card-body">
                     <h2 class="card-title">${title} </h2>
                     <p>category_id: ${category_id} </p>
+                    <p> ${details.length > 200 ?details.slice(0,100)+"...": 'not found'} </p>
                     <p>published_date: ${author.published_date} </p>
                     <div class = "p p-horizontal"> 
                     <p><img src="${author.img}  " alt="Shoes" class="w-24 rounded-full ring ring-primary" /> name:${author.name} </p>
                     <p><i class="fa-solid fa-eye mr-4"></i>${total_view ? total_view :"no one see"} </p>
                     </div>
                     <div class="card-actions justify-end">
-                    <label for="my-modal-3" class="btn modal-button" onclick="showAllModal('${details}')">Details</label>
+                    <label for="my-modal-3" class="btn modal-button" onclick="showAllModal('${thumbnail_url}')">Details</label>
                     </div>
                   </div>
                 </div>
                 `;
                 newsContainer.appendChild(div)
-             
             }) 
+           
         }
-    
-        
-          
-    
-         
-            
-    
-        
-        
-    
-    //     const showAllModal=(details)=>{
-    //        /*  console.log(details) */
-    //         const modalBody = document.getElementById('modal-body');
-    //         modalBody.innerHTML = 
-    //         `
-    //             <p class="py-4"> ${details} </p>
-    //         `;
-    //         }
-    // loadPublicPortal()
+        loadPublicPortal()
+        const showAllModal=(details)=>{
+            console.log(details)
+            /* const modalBody = document.getElementById('modal-body');
+            modalBody.innerHTML = 
+            `
+                <p class="py-4"> ${details} </p>
+            `; */
+            };
+           
