@@ -72,7 +72,7 @@ const loadPublicPortal = () =>{
                     <p><i class="fa-solid fa-eye mr-4"></i>${total_view ? total_view :"no one see"} </p>
                     </div>
                     <div class="card-actions justify-end">
-                    <label for="my-modal-3" class="btn modal-button" onclick=" showModal('${details}')">Details</label>
+                    <label for="my-modal-3" class="btn modal-button" onclick=" showModal('Newsdetails.details')">Details</label>
                     </div>
                   </div>
                 </div>
@@ -91,12 +91,12 @@ const loadPublicPortal = () =>{
         }
         
 
-        const showModal= details =>{
-            console.log(details)
+        const showModal= Newsdetails =>{
+            console.log(Newsdetails)
             const modalBody = document.getElementById('modal-body');
             modalBody.innerHTML = 
-            `${modalId}
-                <p class="py-4"> ${details} </p>
+            `
+                <p class="py-4"> ${Newsdetails.details} </p>
             `;
             };
            
