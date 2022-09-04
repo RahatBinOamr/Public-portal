@@ -8,23 +8,26 @@ const loadPublicPortal = () =>{
     
     const displayCategories = (categoryes)=>{
      /* console.log(categoryes) */
-        const menuList = document.getElementById('ul-item');
-       
-         categoryes.forEach(category=>{
-                const li = document.createElement('li');
-                li.innerHTML = 
-                `
-                    <li><a onclick="newslist('${category.category_id}')"  > ${category.category_name } </a></li>
-                `;
-                menuList.appendChild(li)
-            
+     const spinner = document.getElementById('spinner')
+     spinner.classList.remove('hidden')
 
-
+     const menuList = document.getElementById('ul-item');
+     
+     categoryes.forEach(category=>{
+         const li = document.createElement('li');
+         li.innerHTML = 
+         `
+         <li><a onclick="newslist('${category.category_id}')"  > ${category.category_name } </a></li>
+         `;
+         menuList.appendChild(li)
+         
+         
         });
+        spinner.classList.add('hidden')
     }
     
-        const newslist = ()=>{
-            const url = `https://openapi.programming-hero.com/api/news/category/01`
+        const newslist = (id)=>{
+            const url = `https://openapi.programming-hero.com/api/news/category/${id}`
             fetch(url)
             .then(res=>res.json())
             .then(data=>newsContainerfield(data.data))
@@ -36,7 +39,17 @@ const loadPublicPortal = () =>{
             const newsContainer = document.getElementById('news-container');
             newsContainer.textContent = '';
             /* console.log(collections)  */
-           
+            const notFound = document.getElementById('no-result-found');
+   notFound.textContent = '';
+   if(newsContainer.length === 0)
+   {
+    /* console.log('not found products') */
+    notFound.innerHTML =
+    `
+    <h2 class="text-5xl text-orange-500 text-center"> not found products </h2>
+    `
+    return;
+   }
            
                 
              collections.forEach(collectnews =>{
@@ -59,7 +72,7 @@ const loadPublicPortal = () =>{
                     <p><i class="fa-solid fa-eye mr-4"></i>${total_view ? total_view :"no one see"} </p>
                     </div>
                     <div class="card-actions justify-end">
-                    <label for="my-modal-3" class="btn modal-button" onclick="showAllModal('${thumbnail_url}')">Details</label>
+                    <label for="my-modal-3" class="btn modal-button" onclick=" showModal('${details}')">Details</label>
                     </div>
                   </div>
                 </div>
@@ -68,13 +81,22 @@ const loadPublicPortal = () =>{
             }) 
            
         }
+       
         loadPublicPortal()
-        const showAllModal=(details)=>{
+        const displaymodal = () =>{
+            const url = ` https://openapi.programming-hero.com/api/news/`
+            fetch(url)
+            .then(res=>res.json())
+            .then(data=>showModal(data))
+        }
+        
+
+        const showModal= details =>{
             console.log(details)
-            /* const modalBody = document.getElementById('modal-body');
+            const modalBody = document.getElementById('modal-body');
             modalBody.innerHTML = 
-            `
+            `${modalId}
                 <p class="py-4"> ${details} </p>
-            `; */
+            `;
             };
            
